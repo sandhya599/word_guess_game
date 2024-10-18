@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Game</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css}" rel="stylesheet">
+    <style>
+
+.game-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%; /* Full width for responsiveness */
+    padding: 20px;
+}
+
+.game-form-card {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background for the form */
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    border: 2px solid #ccc; /* Subtle border for the card */
+}
+
+.game-form-card h1, .game-form-card h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.game-form-card .form-label {
+    color: #333;
+}
+
+.game-form-card .btn-primary {
+    background: linear-gradient(135deg, #ff8a00, #e52e71); /* Gradient button */
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.game-form-card .btn-primary:hover {
+    background: linear-gradient(135deg, #e52e71, #ff8a00);
+}
+
+    </style>
+</head>
+<body>
+
+<div th:replace="navbar"></div>
+
+<div class="game-form-container">
+    <div class="game-form-card">
+        <h1 class="text-center">Word Game</h1>
+        <h2 class="text-center">Hello, <span th:text="${user.name}"></span>! Your Score: <span th:text="${user.score}"></span></h2>
+
+        <!-- Message Alert -->
+        <p th:if="${message}" th:text="${message}" class="alert alert-danger" style="color: red;"></p>
+
+        <!-- Form -->
+        <form action="/word" method="post" class="mt-4">
+            <div class="mb-3">
+                <label for="level" class="form-label">Select Level:</label>
+                <select name="selectedLevel" id="level" class="form-select" required>
+                    <option value="" disabled selected>Select a level</option>
+                    <option th:each="level : ${levels}" th:value="${level}" th:text="${level}"></option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary gradient-button">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<div th:replace="footer"></div>
+<script th:href="@{js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,454 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ff99cc, #cc66ff, #6699ff);
+    color: #444;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #343a40;
+}
+
+p {
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.8;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+a:hover {
+    color: #0044ff;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 600px;
+    padding: 80px 0;
+    background-image: linear-gradient(to right, #002f4b, #dc4225);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.hero-section h1 {
+    font-size: 48px;
+    margin-top: 100px;
+    color: #fff;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.hero-section p {
+    font-size: 24px;
+    margin-top: 20px;
+    color: #f9f9f9;
+}
+
+.animated-text {
+    animation: slide-in 1.5s ease-out;
+}
+
+.home-main {
+    height: 500px;
+    width: 675px;
+    padding: 20px 0;
+}
+
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bounce-img {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Custom Button Styles */
+.gradient-button {
+    padding: 12px 36px;
+    font-size: 18px;
+    background: linear-gradient(135deg, #f09433, #e6683c, #dc4225, #c33764);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.gradient-button:hover {
+    background: linear-gradient(135deg, #c33764, #dc4225, #e6683c, #f09433);
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+
+.gradient-button-outline {
+    padding: 12px 36px;
+    font-size: 18px;
+    background: none;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.gradient-button-outline:hover {
+    background: #fff;
+    color: #c33764;
+}
+
+/* Footer Styles */
+.footer-title {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer-widget ul li a {
+    font-size: 18px;
+    color: #b3b3b3;
+}
+
+.footer-widget ul li a:hover {
+    color: #fff;
+}
+
+.footer-line {
+    border-color: #444;
+}
+
+.tiny-footer {
+    font-size: 14px;
+    color: #777;
+    padding-top: 20px;
+}
+
+.newsletter-form .form-control {
+    border-radius: 25px;
+    background-color: #343a40;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+}
+
+.newsletter-form button {
+    background-color: #f09433;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 25px;
+}
+
+.newsletter-form button:hover {
+    background-color: #dc4225;
+}
+
+/* Responsiveness */
+@media only screen and (max-width: 768px) {
+    .hero-section {
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .hero-section h1 {
+        font-size: 36px;
+        margin-top: 50px;
+    }
+
+    .hero-section p {
+        font-size: 18px;
+    }
+
+    .right-image {
+        margin-top: 20px;
+    }
+}
+
+/* Navbar */
+/* Navbar Styling */
+.custom-navbar {
+    background-color: #f9e9de !important;
+    transition: background-color 0.5s ease;
+    box-shadow: none;
+}
+
+.custom-navbar.scrolled {
+    background-color: #1b1b1b;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand {
+    font-size: 1.95rem !important;
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+}
+
+.nav-link {
+    font-size: 1rem;
+    padding: 12px;
+    color: #000;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link:hover {
+}
+
+.custom-button-gradient {
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.4s ease;
+    font-weight: 500;
+}
+
+.custom-button-gradient:hover {
+    background: linear-gradient(90deg, #e52e71, #ff8a00);
+    color: #fff;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 10px 0;
+    }
+
+    .custom-button-gradient {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Custom Navbar Colors and Borders */
+
+.custom-nav-link {
+    color: #fff !important; /* Light text for navbar links */
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+    font-size: 16px;
+}
+
+.custom-nav-link:hover {
+    color: #f05d23 !important; /* Orange color on hover */
+}
+
+.btn-custom:hover { /* Darker background on hover */
+    color: #f05d23; /* Orange text on hover */
+}
+
+/* Adjust margins for better spacing */
+.mx-2 {
+    margin: 0 10px;
+}
+
+.anchor-padding {
+    padding: 10px;
+    display: inline-block;
+}
+
+/*FOOTER*/
+.custom-footer {
+    background-color: #9fb6c3 !important;
+    color: white;
+    padding-top: 20px;
+}
+
+.custom-footer-heading {
+    font-size: 24px;
+    text-align: center;
+    border-bottom: 1px solid orange;
+    padding: 10px;
+}
+
+.footer-content {
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.custom-nav-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar {
+    background-color:
+    color: #000 !important;
+    text-decoration: none;
+}
+
+.custom-nav-link:hover {
+    color: f9e9de !important;
+}
+
+.list-inline-item i {
+    font-size: 24px;
+    color: white !important;
+}
+
+.list-inline-item i:hover {
+    color: #f18930 !important;
+}
+
+.bottom-bar {
+    background-color: #f18930;
+    color: #343434;
+    font-size: 16px;
+}
+
+
+/*FOOTER*/
+
+
+/*login container*/
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.2); /* Transparent background */
+    padding: 20px;
+}
+
+.login-card {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    border: 2px solid #ccc; /* Border around the card */
+}
+
+.login-card h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.login-card .form-label {
+    color: #333;
+}
+
+.login-card .btn-primary {
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.login-card .btn-primary:hover {
+    background: linear-gradient(135deg, #e52e71, #ff8a00);
+}
+
+.card-footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.card-footer a {
+    color: #e52e71;
+    font-weight: bold;
+}
+
+/*login container*/
+
+/*signup page*/
+/*html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #ff99cc, #cc66ff, #6699ff); *//* Keep your background gradient *//*
+}*/
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%; /* Ensure it spans the full viewport width */
+    padding: 20px;
+}
+
+.signup-card {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background */
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%; /* Makes it responsive */
+    border: 2px solid #ccc; /* Border around the card */
+}
+
+.signup-card h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.signup-card .form-label {
+    color: #333;
+}
+
+.signup-card .btn-primary {
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.signup-card .btn-primary:hover {
+    background: linear-gradient(135deg, #e52e71, #ff8a00);
+}
+
+/*signup page*/
+
+/* Navbar Scroll Effect */
+$(window).on("scroll", function () {
+    if ($(window).scrollTop() > 50) {
+        $(".custom-navbar").addClass("scrolled");
+    } else {
+        $(".custom-navbar").removeClass("scrolled");
+    }
+});
+
+
+
+
+

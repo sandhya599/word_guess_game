@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css}" rel="stylesheet">
+</head>
+<body>
+
+<!-- Including the navbar -->
+<div th:replace="navbar.html"></div>
+
+<!-- Main container for the body content with padding -->
+<div class="container py-5">
+    <div class="row justify-content-center align-items-center text-center">
+        <div class="col-md-6 mb-4">
+            <h1>About Us</h1>
+            <p>Welcome to our Guess Word platform! Our mission is to help you expand your vocabulary in a fun and engaging way.</p>
+            <p>This game is designed for word enthusiasts of all ages. With each game, you’ll challenge yourself to guess words, earn rewards, and improve your language skills.</p>
+            <p>Whether you're here to learn, play, or just enjoy some word challenges, we’re glad to have you on board!</p>
+        </div>
+        <div class="col-md-6">
+            <img class="home-main" th:src="@{/about-guess.jpg}" alt="About Image">
+        </div>
+    </div>
+</div>
+
+<!-- Including the footer -->
+<div th:replace="footer.html"></div>
+
+<script th:href="@{js/bootstrap.bundle.min.js}"></script>
+<script th:href="@{https://kit.fontawesome.com/1165876da6.js}" crossorigin="anonymous"></script>
+
+</body>
+</html>

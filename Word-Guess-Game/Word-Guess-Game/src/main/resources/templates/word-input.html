@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Input</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css}" rel="stylesheet">
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css}" rel="stylesheet">
+    <style>
+
+.word-input-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%; /* Full width for responsiveness */
+    padding: 20px;
+}
+
+.word-input-form-card {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background for the form */
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    border: 2px solid #ccc; /* Subtle border for the card */
+}
+
+.word-input-form-card h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.word-input-form-card .form-label {
+    color: #333;
+}
+
+.word-input-form-card .btn-primary {
+    background: linear-gradient(135deg, #ff8a00, #e52e71); /* Gradient button */
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.word-input-form-card .btn-primary:hover {
+    background: linear-gradient(135deg, #e52e71, #ff8a00);
+}
+
+    </style>
+</head>
+<body>
+
+<div th:replace="navbar"></div>
+
+<div class="word-input-form-container">
+    <div class="word-input-form-card">
+        <h2 class="text-center mb-4">Word Input</h2>
+
+        <!-- Message Alert -->
+        <p th:if="${message}" th:text="${message}" class="alert alert-danger"></p>
+
+        <!-- Word Input Form -->
+        <form action="/getWord" method="post" class="mt-4">
+            <!-- Word Image -->
+            <div class="mb-3 text-center">
+                <img th:src="@{'/' + ${GivenImage}}" class="word_image img-fluid" alt="Word Image" />
+            </div>
+
+            <!-- Hints -->
+            <h4 class="text-center" th:text="${GivenHints}"></h4>
+
+            <!-- Word Input -->
+            <div class="mb-3">
+                <label for="word" class="form-label">Your Guess:</label>
+                <input type="text" id="word" name="word" class="form-control" placeholder="Enter your word" required>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary gradient-button">Submit Your Guess</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<div th:replace="footer"></div>
+<script th:href="@{js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${word != null ? 'Update Word' : 'Add New Word'}"></title>
+    <link th:href="@{/style.css}" rel="stylesheet"/>
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css}" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <style>
+
+.word-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%; /* Full width for responsiveness */
+    padding: 20px;
+}
+
+.word-form-card {
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background for the form */
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    border: 2px solid #ccc; /* Subtle border for the card */
+}
+
+.word-form-card h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.word-form-card .form-label {
+    color: #333;
+}
+
+.word-form-card .btn-primary {
+    background: linear-gradient(135deg, #ff8a00, #e52e71); /* Gradient button */
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.word-form-card .btn-primary:hover {
+    background: linear-gradient(135deg, #e52e71, #ff8a00);
+}
+
+.word_image {
+    max-height: 150px;
+    object-fit: cover;
+    margin-top: 15px;
+}
+
+    </style>
+    <link th:href="@{../css/bootstrap.min.css}" rel="stylesheet" >
+</head>
+<body>
+
+<div th:replace="navbar"></div>
+
+<div class="word-form-container">
+    <div class="word-form-card">
+        <h1 class="text-center" th:text="${word != null ? 'Update Word' : 'Add New Word'}"></h1>
+
+        <form th:action="@{${word != null ? '/admin/update-word-done' : '/admin/add-word'}}"
+              method="post" enctype="multipart/form-data" class="mt-4">
+
+            <input type="hidden" th:if="${word != null}" th:name="wid" th:value="${word.wid}" />
+
+            <!-- Word Name -->
+            <div class="form-group mb-3">
+                <label for="wordName" class="form-label">Word Name</label>
+                <input type="text" class="form-control" id="wordName" name="wordName"
+                       placeholder="Enter word name" th:value="${word != null ? word.wordName : ''}" required>
+            </div>
+
+            <!-- Hints -->
+            <div class="form-group mb-3">
+                <label for="hints" class="form-label">Hints</label>
+                <textarea class="form-control" id="hints" name="hints" rows="3"
+                          placeholder="Enter hints" required th:text="${word != null ? word.hints : ''}"></textarea>
+            </div>
+
+            <!-- Level -->
+            <div class="form-group mb-3">
+                <label for="level" class="form-label">Level</label>
+                <select class="form-control" id="level" name="level" required>
+                    <option value="easy" th:attr="selected=${word != null and word.level == 'easy'}">Easy</option>
+                    <option value="medium" th:attr="selected=${word != null and word.level == 'medium'}">Medium</option>
+                    <option value="hard" th:attr="selected=${word != null and word.level == 'hard'}">Hard</option>
+                </select>
+            </div>
+
+            <!-- Upload Image -->
+            <div class="form-group mb-3">
+                <label for="imageFile" class="form-label">Upload Image</label>
+                <input type="file" class="form-control" id="imageFile" name="imageFile" accept="image/*">
+                <div th:if="${word != null}">
+                    <img th:src="@{'/static/' + ${word.image}}" alt="Word Image" class="img-fluid mt-2" style="max-height: 150px;">
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary gradient-button" th:text="${word != null ? 'Update Word' : 'Add Word'}"></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div th:replace="footer"></div>
+<script th:href="@{../js/bootstrap.bundle.min.js}" ></script>
+</body>
+</html>

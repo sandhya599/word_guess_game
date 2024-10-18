@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Game</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/style.css}" rel="stylesheet"/>
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css}" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 40px 0; /* Add padding to the content */
+        }
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+        .word-card {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        .word-card:hover {
+            transform: translateY(-5px);
+        }
+        .word-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .word-card-body {
+            padding: 15px;
+        }
+        .word-card-body h5 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .word-card-body p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            color: #666;
+        }
+        .btn-card {
+            display: inline-block;
+            padding: 5px 10px;
+            color: white;
+            background-color: #007bff;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            text-align: center;
+            text-decoration: none;
+        }
+        .btn-card:hover {
+            background-color: #fff;
+        }
+        footer {
+            padding: 20px;
+            background-color: #f1f1f1;
+            color: #777;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container">
+        <a class="navbar-brand" href="#">Guess Word</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/signup">Signup</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content with Padding -->
+<div class="container content">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <a href="/admin/add-word" class="btn btn-primary"><i class="fas fa-plus"></i> Add New Word</a>
+        <input type="text" class="form-control w-50" placeholder="Search for a word...">
+    </div>
+
+    <div class="card-grid">
+        <div class="word-card" th:each="word : ${words}">
+            <img th:src="@{'/' + ${word.image}}" alt="Word Image">
+            <div class="word-card-body">
+                <h5 th:text="${word.wordName}">Word Name</h5>
+                <p th:text="${word.hints}">Hints</p>
+                <p><strong>Level:</strong> <span th:text="${word.level}"></span></p>
+                <div class="d-flex justify-content-between">
+                    <a th:href="@{'/admin/update-word?id=' + ${word.wid}}" class="btn-card">Edit</a>
+                    <a th:href="@{'/admin/delete-word?id=' + ${word.wid}}" class="btn-card" style="background-color: #dc3545;">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="footer"></div>
+
+<script th:href="@{js/bootstrap.bundle.min.js}"></script>
+<script th:href="@{https://kit.fontawesome.com/1165876da6.js}" crossorigin="anonymous"></script>
+
+</body>
+</html>

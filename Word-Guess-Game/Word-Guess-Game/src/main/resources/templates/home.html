@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess Word</title>
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css}" rel="stylesheet">
+</head>
+<body>
+
+<!-- Including the navbar -->
+<div th:replace="navbar.html"></div>
+
+<!-- Main container for the body content -->
+<div class="container">
+    <div class="row justify-content-center align-items-center text-center">
+        <div class="col-md-6 right-area">
+            <h1>Guess the word and Get Rewards</h1>
+            <p>Enhance your vocabulary</p>
+            <a href="/signup" class="anchor-padding">
+                <button class="theme-button btn btn-light">Create Account</button>
+            </a>
+            <a href="/login" class="anchor-padding">
+                <button class="theme-button btn btn-dark">Play Now</button>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <img class="home-main" th:src="@{/home-main.png}" alt="Puzzle Image">
+        </div>
+    </div>
+</div>
+
+<!-- Including the footer -->
+<div th:replace="footer.html"></div>
+
+<script th:href="@{js/bootstrap.bundle.min.js}"></script>
+<script th:href="@{https://kit.fontawesome.com/1165876da6.js}" crossorigin="anonymous"></script>
+
+</body>
+</html>
